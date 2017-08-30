@@ -5,7 +5,7 @@ import { Title, LoginWrapper, FormContainer } from './Login.style';
  * Remember what I wrote about every component has its own styling. Oh yeah.
  */
 
-export default function Login(props) {
+export default function Login({ navigation }) {
   return (
     <LoginWrapper>
       <Title h4>Sign in to start blogging</Title>
@@ -25,7 +25,11 @@ export default function Login(props) {
         </FormControl>
       </FormContainer>
 
-      <Button info title={'Login'}/>
+      <Button
+        info
+        title={'Login'}
+        onPress={() => navigation.navigate('Blogs')}
+      />
       {/* Please remember that Button from react-native is a NATIVE button. It will look different on iOS and Android. And, you can't style it. To have custom style for buttons, we will have to create them ourselves.*/}
     </LoginWrapper>
   );

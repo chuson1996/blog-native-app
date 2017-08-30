@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { Container } from './styles/grid'
 import { StackNavigator } from 'react-navigation';
-import Login from './screens/Login/Login'
+import Login from './screens/Login/Login';
+import Blogs from './screens/Blogs/Blogs';
+import NewBlog from './screens/NewBlog/NewBlog';
 
 /**
  * To style our app, we will use styled-components. Let's install it.
@@ -38,7 +40,27 @@ export default StackNavigator({
   Login: {
     screen: Login,
     navigationOptions: {
-      title: 'Login'
+      title: 'Login',
     },
-  }
+  },
+  Blogs: {
+    screen: Blogs,
+    navigationOptions: ({ navigation }) => {
+      return {
+        title: 'Blogs',
+        headerRight: (<Button
+          title={'New'}
+          onPress={() => navigation.navigate('NewBlog')}
+        />)
+      };
+    },
+  },
+  NewBlog: {
+    screen: NewBlog,
+    navigationOptions: {
+      title: 'NewBlog'
+    }
+  },
+}, {
+  initialRouteName: 'NewBlog'
 });
