@@ -9,7 +9,8 @@ import { TouchableOpacity, Text } from 'react-native';
 import { blue, gray, h1FontSize, h2FontSize, h3FontSize, h4FontSize } from './variables'
 
 export const TextInput = styled.TextInput`
-  padding-vertical: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
   ${({ h1 }) => h1 && css`
     font-size: ${h1FontSize};
   `}
